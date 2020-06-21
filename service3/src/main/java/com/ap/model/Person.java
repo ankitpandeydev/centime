@@ -1,9 +1,12 @@
 package com.ap.model;
 
+import javax.validation.constraints.NotNull;
+
 public class Person {
 
 	
 	private String name;
+	
 	private String surname;
 
 	public Person() {

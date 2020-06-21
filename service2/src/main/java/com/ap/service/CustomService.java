@@ -22,10 +22,8 @@ public class CustomService {
 	
 	public String getDetails(String uuid) {
 		logger.info("Service2 getDetails() method called with UUID : "+uuid);
-		ResponseEntity<Person> response = restTemplate.postForEntity(applicationProperties.getService2Host()+"/"+URIResource.GET_SERVICE3_DETAIL+"/"+uuid, null, Person.class);
-		Person person = response.getBody();
-		logger.info("Person : "+person);
-		return "Hello "+person.getName()+" "+person.getSurname();
+	
+		return "Hello ";
 		
 	}
 	

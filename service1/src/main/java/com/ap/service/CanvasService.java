@@ -39,7 +39,7 @@ public class CanvasService {
 
 	public List<CanvasPojo> getNestResponse() {
 
-		Iterable<Canvas> it = canvasRepository.findAll();
+		Iterable<Canvas> it = canvasRepository.findAll(); 
 		List<Canvas> list = StreamSupport.stream(it.spliterator(), false).collect(Collectors.toList());
 		List<CanvasPojo> result = new ArrayList<CanvasPojo>();
 		for (Canvas can : list) {

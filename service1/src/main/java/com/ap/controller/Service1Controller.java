@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ap.exception.CustomException;
 import com.ap.service.CustomService;
 
 @RestController
@@ -24,9 +25,14 @@ public class Service1Controller {
 	}
 
 	@PostMapping
-	public String details() {
+	public String details()  {
 		UUID uuid = UUID.randomUUID();
-		String response = customService.getService2Response(uuid.toString());
+		String response = null;
+		try {
+		response = customService.getService2Response(uuid.toString());
+		}catch(Exception e) {
+			throw new CustomException(e.getMessage());
+		}
 		return response;
 	}
 

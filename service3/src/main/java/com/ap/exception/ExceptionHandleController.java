@@ -12,11 +12,11 @@ import org.springframework.http.ResponseEntity;
 @RestControllerAdvice
 public class ExceptionHandleController {
 
-	@ExceptionHandler(CustomException.class)
+	@ExceptionHandler(ServiceException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
-	public ResponseEntity<CustomErrorResponse> handleGenericNotFoundException(CustomException e) {
+	public ResponseEntity<CustomErrorResponse> handleGenericNotFoundException(ServiceException e) {
 
-		CustomErrorResponse error = new CustomErrorResponse("Payload validation error", e.getMessage());
+		CustomErrorResponse error = new CustomErrorResponse("Pojo field should not be null", e.getMessage());
 		error.setTimestamp(LocalDateTime.now());
 		error.setStatus((HttpStatus.BAD_REQUEST.value()));
 		return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
